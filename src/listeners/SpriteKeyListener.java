@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 Carzuilha
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package listeners;
 
 import java.awt.event.KeyEvent;
@@ -21,8 +5,10 @@ import java.awt.event.KeyListener;
 import model.AnimatedSprite;
 
 /**
- *
- * @author Carzuilha
+ *  Defines a custom key listener for the application. This listener activates
+ * the sprite movement.
+ * 
+ * @author     Carlos de Carvalho (Carzuilha)
  */
 public class SpriteKeyListener implements KeyListener {
     
@@ -30,12 +16,12 @@ public class SpriteKeyListener implements KeyListener {
     private final AnimatedSprite theSprite;
     
     /**
-     *  Class constructor.
+     *  Creates a new instance of the object.
      * 
      * @param   _sprite     The sprite that will receive the key listener.
      */
     public SpriteKeyListener(AnimatedSprite _sprite) {
-        this.theSprite = _sprite;
+        theSprite = _sprite;
     }
 
     /**
@@ -46,46 +32,45 @@ public class SpriteKeyListener implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent ke) {
-        
-        //  Change the sprite position (if possible) accord with the pressed key.
+
         switch (ke.getKeyCode()) {
             
             case KeyEvent.VK_UP: 
                 
-                this.theSprite.moveTo(theSprite.getXCoord(), theSprite.getYCoord() - theSprite.getStep());
+                theSprite.moveTo(theSprite.getXCoord(), theSprite.getYCoord() - theSprite.getStep());
                 
-                if (!this.theSprite.getAnimation().equals(AnimatedSprite.WALK_UP)) {
-                    this.theSprite.setAnimation(AnimatedSprite.WALK_UP);               
+                if (!theSprite.getAnimation().equals(AnimatedSprite.WALK_UP)) {
+                    theSprite.setAnimation(AnimatedSprite.WALK_UP);               
                 }
                 
                 break;
                 
             case KeyEvent.VK_DOWN: 
                 
-                this.theSprite.moveTo(theSprite.getXCoord(), theSprite.getYCoord() + theSprite.getStep());
+                theSprite.moveTo(theSprite.getXCoord(), theSprite.getYCoord() + theSprite.getStep());
                 
-                if (!this.theSprite.getAnimation().equals(AnimatedSprite.WALK_DOWN)) {
-                    this.theSprite.setAnimation(AnimatedSprite.WALK_DOWN);               
+                if (!theSprite.getAnimation().equals(AnimatedSprite.WALK_DOWN)) {
+                    theSprite.setAnimation(AnimatedSprite.WALK_DOWN);               
                 }
                 
                 break;
                  
             case KeyEvent.VK_LEFT: 
                 
-                this.theSprite.moveTo(theSprite.getXCoord() - theSprite.getStep(), theSprite.getYCoord());
+                theSprite.moveTo(theSprite.getXCoord() - theSprite.getStep(), theSprite.getYCoord());
                 
-                if (!this.theSprite.getAnimation().equals(AnimatedSprite.WALK_LEFT)) {
-                    this.theSprite.setAnimation(AnimatedSprite.WALK_LEFT);               
+                if (!theSprite.getAnimation().equals(AnimatedSprite.WALK_LEFT)) {
+                    theSprite.setAnimation(AnimatedSprite.WALK_LEFT);               
                 }
                 
                 break;
         
             case KeyEvent.VK_RIGHT: 
                 
-                this.theSprite.moveTo(theSprite.getXCoord() + theSprite.getStep(), theSprite.getYCoord());
+                theSprite.moveTo(theSprite.getXCoord() + theSprite.getStep(), theSprite.getYCoord());
                 
-                if (!this.theSprite.getAnimation().equals(AnimatedSprite.WALK_RIGHT)) {
-                    this.theSprite.setAnimation(AnimatedSprite.WALK_RIGHT);               
+                if (!theSprite.getAnimation().equals(AnimatedSprite.WALK_RIGHT)) {
+                    theSprite.setAnimation(AnimatedSprite.WALK_RIGHT);               
                 }
                 
                 break;
@@ -104,8 +89,7 @@ public class SpriteKeyListener implements KeyListener {
      */
     @Override
     public void keyReleased(KeyEvent ke) {
-        
-        //  Changes the standby sprite direction accord to the previous act.
+
         switch (ke.getKeyCode()) {
             
             case KeyEvent.VK_UP:
@@ -131,13 +115,13 @@ public class SpriteKeyListener implements KeyListener {
     }
     
     /**
-     *  Just an empty method (needed for the abstract implementation). 
+     *  Just an empty method (required by the abstract implementation). 
      * 
      * @param   ke          The key event (typed key). 
      */
     @Override
     public void keyTyped(KeyEvent ke) {
-        // Not used yet.
+        // Do nothing.
     }
     
 }

@@ -1,4 +1,8 @@
+# Mario 2D
+
 Este projeto mostra um sprite simples que pode ser controlado pelo teclado. Você pode usá-lo para criar um jogo ou até mesmo para testar como manipular um sprite em Java.
+
+## Sobre este Projeto
 
 O desenvolvimento deste projeto foi baseado nos códigos-fonte que podem ser visualizados em https://www.javalobby.org//articles/ultimate-image/. Porém, há algumas modificações em relação ao projeto original:
 
@@ -6,4 +10,6 @@ O desenvolvimento deste projeto foi baseado nos códigos-fonte que podem ser vis
  - O sprite não se movimentava pela tela, apenas mudava a animação de movimento. Neste projeto, ele se move pela tela, utilizando o teclado;
  - O projeto atual foi dividido em um modelo MVC (model-control-view) para facilitar manutenção. 
 
-Dúvidas podem ser resolvidas por meio do meu e-mail: carloswdecarvalho@outlook.com.
+## Licença de Uso
+
+Os códigos disponibilizados aqui estão sob a GNU General Public License, versão 3.0 (veja o arquivo `LICENSE` em anexo para mais detalhes). Dúvidas sobre a biblioteca podem ser enviadas para o meu e-mail: carloswdecarvalho@outlook.com.

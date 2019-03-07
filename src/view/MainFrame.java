@@ -1,76 +1,60 @@
-/*
- * Copyright (C) 2017 Carzuilha
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package view;
 
-import control.ControlPanel;
 import listeners.SpriteKeyListener;
-import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JFrame;
+import model.AnimatedSprite;
 
 /**
- *
- * @author Carzuilha
+ *  Defines the main frame of the application.
+ * 
+ * @author  Carlos de Carvalho (Carzuilha)
  */
 public class MainFrame extends JFrame {
+
+    // The application title.
+    public static String APP_TITLE = "Testing Sprites";             
     
-    //  The title of the application.
-    public static String APP_TITLE = "Mario using Keyboard";
+    // Defines the dimensions of the frame.
+    public static Dimension PANEL_SIZE = new Dimension(500, 500);   
     
-    //  The width and the height of the frame on screen.
-    public static int PANEL_WIDTH = 500;
-    public static int PANEL_HEIGHT = 500;
-    
-    //  The main panel, where all the drawings will be represented.
-    private final ControlPanel thePanel;
+    // Contains all the sprites of the application.
+    private final MainPanel mainPanel;                                    
     
     /**
-     *  Class constructor.
-     * 
+     *  Creates a new instance of the object.
      */
     public MainFrame() {
         
         super();
         
-        //  Makes the frame visible, non-resizeable and exiting on close...
-        this.setTitle(APP_TITLE);
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainPanel = new MainPanel();
         
-        //  ...sets the panel size and background color...
-        this.setSize(PANEL_WIDTH, PANEL_HEIGHT);
-        this.setBackground(Color.BLACK);
-        
-        //  ...creates a panel and set its as a content pane...
-        this.thePanel = new ControlPanel();        
-        this.setContentPane(thePanel);
-        
-        //  ...and adds a key listener to the frame.
-        this.addKeyListener(new SpriteKeyListener(this.thePanel.getAnimatedSprite()));
-    
+        initializeComponent();
+        addKeyListener();
     }
     
     /**
-     *  Returns the content panel of the frame.
-     * 
-     * @return  The content panel.
+     *  Initializes all the frame resources.
      */
-    public ControlPanel getPanel() {
-        return this.thePanel;
+    private void initializeComponent() {
+
+        setVisible(true);
+        setSize(PANEL_SIZE);
+        setTitle(APP_TITLE);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
+        setContentPane(mainPanel);
+    }
+    
+    /**
+     *  Adds the key listener to the frame.
+     */
+    private void addKeyListener() {
+        addKeyListener(
+            new SpriteKeyListener((AnimatedSprite) mainPanel.getMainSprite())
+        );
     }
     
 }

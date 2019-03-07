@@ -1,28 +1,13 @@
-/*
- * Copyright (C) 2017 Carzuilha
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package model;
 
 import java.awt.Graphics2D;
 
 /**
- *
- * @author Carzuilha
+ *  Defines a generic sprite. This class cannot be instanced alone.
+ * 
+ * @author      Carlos de Carvalho (Carzuilha)
  */
-public abstract class Sprite {
+public abstract class GenericSprite {
     
     //  The coordinates of a sprite inside a panel (upper left).
     protected double xCoord = 0;
@@ -39,7 +24,7 @@ public abstract class Sprite {
      * @return  The X coordinate of the sprite.      
      */
     public double getXCoord() {
-        return this.xCoord;
+        return xCoord;
     }
     
     /**
@@ -49,7 +34,7 @@ public abstract class Sprite {
      * @return  The Y coordinate of the sprite.      
      */
     public double getYCoord() {
-        return this.yCoord;
+        return yCoord;
     }
     
     /**
@@ -59,7 +44,7 @@ public abstract class Sprite {
      * @return  The max X coordinate of the sprite.      
      */
     public double getMaxX() {
-        return this.xMax;
+        return xMax;
     }
     
     /**
@@ -69,7 +54,7 @@ public abstract class Sprite {
      * @return  The max Y coordinate of the sprite.      
      */
     public double getMaxY() {
-        return this.yMax;
+        return yMax;
     }
             
     /**
@@ -81,12 +66,12 @@ public abstract class Sprite {
      */
     public void moveTo(double _x, double _y) {
     
-        if (_x >= 0 && _x <= this.xMax) {
-            this.xCoord = _x;
+        if (_x >= 0 && _x <= xMax) {
+            xCoord = _x;
         }
         
-        if (_y >= 0 && _y <= this.yMax) {
-            this.yCoord = _y;
+        if (_y >= 0 && _y <= yMax) {
+            yCoord = _y;
         }
     
     }
@@ -98,8 +83,8 @@ public abstract class Sprite {
      * @param   _y          The highest Y coordinate possible for the sprite.
      */
     public void setMaxPosition(double _x, double _y) {
-        this.xMax = _x;
-        this.yMax = _y;
+        xMax = _x;
+        yMax = _y;
     }
     
     /**

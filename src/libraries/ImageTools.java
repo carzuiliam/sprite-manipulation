@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2017 Carzuilha
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package libraries;
 
 import java.awt.AlphaComposite;
@@ -25,19 +9,22 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Josiah Hester
- * @author Carzuilha
+ *  Contains a set of useful methods to work with images. These codes are based
+ * on the sources given by Josiah Hester, and available on the following link:
+ * <https://www.javalobby.org//articles/ultimate-image/>.
+ * 
+ * @author      Josiah Hester
+ * @author      Carlos de Carvalho (Carzuilha).
  */
-public class ImageTool {
+public class ImageTools {
     
     /**
-     *  Load an image from a file.
+     *  Loads an image from a file.
      * 
-     * @param   _path       The image path on the computer.
-     * @return  The loaded image (or null if fails).
+     * @param   _path       The image path.
+     * @return  The corresponding image (or null if fails).
      */
-    public static BufferedImage loadImage(String _path ){
+    public static BufferedImage load(String _path ){
  
         //  Tries to load an image from the file path; returns null if fails.
         try { 
@@ -49,21 +36,19 @@ public class ImageTool {
     }
     
     /**
-     *  Makes a certain color in a image transparent.
+     *  Makes a specific color inside an image transparent.
      * 
-     * @param   _path       The image path on the computer.
+     * @param   _path       The image path.
      * @param   _color      The color that will be replaced.
-     * @return  The loaded image with the transparent color.
+     * @return  The same input image, but with transparency.
      */
-    public static BufferedImage makeColorTransparent(String _path, Color _color) {
-        
-        //  Tries to load an image from the file path...
-        BufferedImage image = loadImage(_path);
+    public static BufferedImage makeTransparent(String _path, Color _color) {
+
+        BufferedImage image = load(_path);
         BufferedImage dimg = 
                 new BufferedImage(image.getWidth(), image.getHeight(), 
                                   BufferedImage.TYPE_INT_ARGB);
 
-        //  ...replaces the inputted color with the transparency...
         Graphics2D g = dimg.createGraphics();
         
         g.setComposite(AlphaComposite.Src);
@@ -77,29 +62,26 @@ public class ImageTool {
                 }
             }
         }
-        
-        //  ...and returns the edited image.
+
         return dimg;
         
     }
     
     /**
-     *  Splits an image into parts. The image will be splitted up by the number 
-     * of rows and columns given.
+     *  Splits an image into parts. The image will be split up by the given number 
+     * of rows and columns.
      * 
      * @param   _image      The loaded image. 
      * @param   _cols       The number of columns used to split the image.
      * @param   _rows       The number of rows used to split the image.
      * @return  An array that contains all the "pieces" of the original image.
      */
-    public static BufferedImage[] splitImage(BufferedImage _image, int _cols, int _rows) {
+    public static BufferedImage[] split(BufferedImage _image, int _cols, int _rows) {
         
-        //  Initialize the parameters used in the split...
         int w = _image.getWidth()/_cols;
         int h = _image.getHeight()/_rows;
         int num = 0;
-        
-        //  ...splits the image in an array of sub-images...
+
         BufferedImage imgs[] = new BufferedImage[w*h];
         
         for(int y = 0; y < _rows; y++) {            
@@ -115,8 +97,7 @@ public class ImageTool {
                 num++;
             }            
         }
-        
-        //  ...and returns the image set.
+
         return imgs;
     
     }
