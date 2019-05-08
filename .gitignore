@@ -1,7 +1,9 @@
+# Netbeans project files
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
 
+# Build results
 dist/
 build/
 nbbuild/
