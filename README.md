@@ -1,15 +1,15 @@
-# Mario 2D
+# Sprite Manipulation em Java
 
-This project shows a simple sprite that can be controlled by keyboard. You can use it to create a game or even to test a simple sprite manipulation in Java.
+This project shows an example of an animated sprite control in Java.
 
-## About this Project
+## Introduction
 
-The development of this project was based on the source codes that can be viewed in https://www.javalobby.org//articles/ultimate-image/. However, there are some modifications compared to the original project:
+This projet is based on the article [**"Ultimate Java Image Manipulation"**](https://www.javalobby.org//articles/ultimate-image/) by Josiah Hester. But there ar some differences between this implementation and the original implementation:
 
- - In the original design, the sprite is drawn directly into a JFrame. In my project, the sprite is drawn in a JPanel, which is inserted inside the JFrame;
- - The sprite did not move around the screen, it only changed the motion animation. In this project, it moves through the screen, using the keyboard;
- - The current project was divided into an MVC (model-control-view) model to easy maintenance.
- 
-## Licence
+ - In the original source, the sprite is directly drawn into the _JFrame_. In this project, the sprite is drawn into a _JPanel_, that is inside the _JFrame_;
+ - The original sprite doesn't move inside the screen, only changes its animation. In this project, it moves inside the screen, using the keyboard;
+ - The current project were divided into a MVC model (_model-control-view_) allowing easy maintenance. 
+
+## License
 
 The available source codes here are under the GNU General Public License, version 3.0 (see the attached `LICENSE` file for more details). Any questions can be submitted to my email: carloswdecarvalho@outlook.com.

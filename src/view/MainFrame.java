@@ -13,7 +13,7 @@ import model.AnimatedSprite;
 public class MainFrame extends JFrame {
 
     // The application title.
-    public static String APP_TITLE = "Testing Sprites";             
+    public static String APP_TITLE = "Sprite Manipulation";             
     
     // Defines the dimensions of the frame.
     public static Dimension PANEL_SIZE = new Dimension(500, 500);   
