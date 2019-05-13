@@ -1,4 +1,4 @@
-# Sprite Manipulation em Java
+# Sprite Manipulation in Java
 
 This project shows an example of an animated sprite control in Java.
 
